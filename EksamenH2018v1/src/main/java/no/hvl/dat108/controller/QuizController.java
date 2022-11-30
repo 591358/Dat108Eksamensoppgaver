@@ -22,6 +22,8 @@ public class QuizController {
 			return "redirect:/";
 		}
 
+		//Bemerk, du blir ikke sendt direkte til quizresultater om du logger inn igjen paa ny, sa denne er nok ikke helt 100% korrekt.
+		
 		if(session.getAttribute("gjeldendeQuiz")==null) {
 			return "ingenaktivquiz";
 		}else {
@@ -29,6 +31,11 @@ public class QuizController {
 		}
 		
 	}
+	
+	
+	
+	
+	
 	@PostMapping(value="/quiz")
 	public String oppdaterQuiz(@RequestParam String nyQuiz, HttpSession session,
 			RedirectAttributes ra) {
